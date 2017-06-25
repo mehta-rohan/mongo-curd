@@ -4,7 +4,7 @@ var {profileSchema} = require('../config/db-connect');
 
 router.get('/search',(req,res)=>{
 	console.log(profileSchema);
-	res.send('working well');
+	res.send('working is well');
 });
 
 module.exports = router;
