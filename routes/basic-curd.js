@@ -10,7 +10,7 @@ router.get('/search',(req,res)=>{
 router.get('/register',(req,res)=>{
 	//console.log(db);
 
-	res.send(req.body);
+	res.send(req.query);
 });
 
 module.exports = router; 
