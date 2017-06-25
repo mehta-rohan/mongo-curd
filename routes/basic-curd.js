@@ -3,9 +3,14 @@ const router = express.Router();
 var {profileSchema} = require('../config/db-connect');
 
 router.get('/search',(req,res)=>{
-	console.log(profileSchema);
+	//console.log(db);
 	res.send('working is well');
 });
 
-module.exports = router;
+router.get('/register',(req,res)=>{
+	//console.log(db);
 
+	res.send(req.body);
+});
+
+module.exports = router; 
