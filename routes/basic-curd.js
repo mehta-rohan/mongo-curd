@@ -7,10 +7,10 @@ router.get('/search',(req,res)=>{
 	res.send('working is well');
 });
 
-router.get('/register',(req,res)=>{
+router.post('/register',(req,res)=>{
 	//console.log(db);
 
-	res.send(req);
+	res.send(req.body);
 });
 
 module.exports = router; 
