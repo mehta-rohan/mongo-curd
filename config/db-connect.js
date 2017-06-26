@@ -1,6 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var dbURI  = 'mongodb://localhost:27017/profile';
+var {
+		dbURI,
+		cluster_one,
+		cluster_two,
+		cluster_three,
+		collection,
+		query
+	} = require('./keys');
 
 mongoose.Promise = global.Promise;
 
@@ -19,7 +26,8 @@ var profileSchema = new Schema({
 	}
 }); 
 
-mongoose.connect(dbURI,{useMongoClient : true})
+
+mongoose.connect(dbURI+cluster_one+cluster_two+cluster_three+collection+query,{useMongoClient : true})
 	.then(()=>{
 		console.log('healthy');
 	}).catch((err)=>{
