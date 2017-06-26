@@ -5,24 +5,26 @@ var dbURI  = 'mongodb://localhost:27017/profile';
 mongoose.Promise = global.Promise;
 
 var profileSchema = new Schema({
-	id:{
-		required: true,
-		type: String
-	},
 	first_name:String,
 	last_name:String,
 	email:String,
-	gender:String,
-	phone_number:[String],
+	phone_number:Number,
 	occupation:String,
 	profile_pic:String,
+	project:String,
+	address:String,
 	creation_date:{
 		type : Date,
 		default : Date.now
 	}
 }); 
 
-mongoose.connect(dbURI,{useMongoClient : true});
+mongoose.connect(dbURI,{useMongoClient : true})
+	.then(()=>{
+		console.log('healthy');
+	}).catch((err)=>{
+		console.log('crap:' +err);
+	});
 
 
 // CONNECTION EVENTS
@@ -37,8 +39,8 @@ mongoose.connection.on('error',function (err) {
 }); 
 
 // When the connection is disconnected
-mongoose.connection.on('disconnected', function () {  
-  console.log('Mongoose default connection disconnected'); 
+mongoose.connection.on('disconnected', function (err) {  
+  console.log('Mongoose default connection disconnected' + err); 
 });
 
 // If the Node process ends, close the Mongoose connection 
@@ -49,4 +51,4 @@ process.on('SIGINT', function() {
   }); 
 })
 
-module.exports = {profileSchema}
+module.exports = {profileSchema,mongoose}
