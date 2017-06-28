@@ -6,7 +6,11 @@ var {
 		cluster_two,
 		cluster_three,
 		collection,
-		query
+		query,ec2IP,
+		ec2PORT,
+		collection,
+		user,
+		pass
 	} = require('./keys');
 
 mongoose.Promise = global.Promise;
@@ -27,7 +31,8 @@ var profileSchema = new Schema({
 }); 
 
 
-mongoose.connect(dbURI+cluster_one+cluster_two+cluster_three+collection+query,{useMongoClient : true})
+//mongoose.connect(`mongodb://${ec2IP}:${ec2PORT}/${collection}?authSource=admin`,{user: `${user}`, pass: `{pass}`})
+mongoose.connect('mongodb://13.126.205.251:27017/MyApp?authSource=admin',{user: 'mehta-rohan', pass: 'OP88888888'})
 	.then(()=>{
 		console.log('healthy');
 	}).catch((err)=>{
