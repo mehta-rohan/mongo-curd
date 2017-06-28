@@ -1,4 +1,8 @@
 node_modules/
 data/
 config/MOCK_DATA.json
+<<<<<<< HEAD
 npm-debug.log
+=======
+logs/
+>>>>>>> 2db1f7617852c03b57f67400d81104f8b8cfeed5
