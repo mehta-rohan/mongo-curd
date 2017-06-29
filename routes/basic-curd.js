@@ -24,6 +24,14 @@ router.post('/register',(req,res)=>{
 	});
 });
 
+router.get('/search',(req,res)=>{
+	var Profile = mongoose.model('Profile',profileSchema);
+	Profile.findOne({first_name : req.body.first_name},(err,result)=>{
+		res.send(result);
+	})
+});
+
+
 var getPopulationInstance = function(body){
 	var Profile = mongoose.model('Profile',profileSchema);
 	return new Profile({
