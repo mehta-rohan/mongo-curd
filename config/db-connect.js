@@ -9,6 +9,7 @@ var {
 		query,ec2IP,
 		ec2PORT,
 		collection,
+		EC2DBUri,
 		user,
 		pass
 	} = require('./keys');
@@ -32,7 +33,7 @@ var profileSchema = new Schema({
 
 
 //mongoose.connect(`mongodb://${ec2IP}:${ec2PORT}/${collection}?authSource=admin`,{user: `${user}`, pass: `{pass}`})
-mongoose.connect('mongodb://13.126.205.251:27017/MyApp?authSource=admin',{user: 'mehta-rohan', pass: 'OP88888888'})
+mongoose.connect(`${EC2DBUri}`,{user: `${user}`, pass: `${pass}`})
 	.then(()=>{
 		console.log('healthy');
 	}).catch((err)=>{
