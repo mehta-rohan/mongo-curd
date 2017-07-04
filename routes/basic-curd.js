@@ -26,7 +26,7 @@ router.post('/register',(req,res)=>{
 
 router.get('/search',(req,res)=>{
 	var Profile = mongoose.model('Profile',profileSchema);
-	Profile.findOne({first_name : req.body.first_name},(err,result)=>{
+	Profile.findOne(req.query,(err,result)=>{
 		res.send(result);
 	})
 });
