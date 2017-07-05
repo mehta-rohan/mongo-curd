@@ -4,9 +4,6 @@ var {profileSchema,mongoose} = require('../config/db-connect');
 var {pic_url,pic_ext,pic_query} = require('../config/keys.js');
 
 
-router.get('/search',(req,res)=>{
-	res.send('working is well');
-});
 
 router.post('/register',(req,res)=>{
 	var NewRegisteration = getPopulationInstance(req.body);
@@ -45,5 +42,7 @@ var getPopulationInstance = function(body){
 		project :body.comment 
 	});
 }
+
+
 
 module.exports = router; 
