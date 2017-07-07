@@ -1,4 +1,4 @@
-var dbURI  = 'mongodb://rohan:Rm_9888850580@'
+var dbURI = 'mongodb://rohan:Rm_9888850580@'
 var cluster_one = 'profilecluster-shard-00-00-z92vk.mongodb.net:27017,'
 var cluster_two = 'profilecluster-shard-00-01-z92vk.mongodb.net:27017,'
 var cluster_three = 'profilecluster-shard-00-02-z92vk.mongodb.net:27017/'
@@ -15,13 +15,15 @@ var pass = 'OP88888888';
 var colon = ':';
 var fSlash = '/';
 var qMark = '?';
-var ec2DB = "MyApp"; 
+var ec2DB = "MyApp";
 
 var EC2DBUri = `mongodb://${ec2IP}${colon}${ec2PORT}${fSlash}${ec2DB}${qMark}authSource=admin`
-
+var localURI = 'mongodb://localhost:27017/MyApp'
 var pic_url = "https://robohash.org/";
 var pic_ext = ".png";
 var pic_query = "?size=150x150&set=set1";
+
+var DB = 'local'; //remote
 
 var ec2PublicDNS = 'ec2-user@ec2-13-126-205-251.ap-south-1.compute.amazonaws.com';
 
