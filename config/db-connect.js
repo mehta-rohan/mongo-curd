@@ -32,13 +32,16 @@ var profileSchema = new Schema({
 }); 
 
 
+
+
+
 //mongoose.connect(`mongodb://${ec2IP}:${ec2PORT}/${collection}?authSource=admin`,{user: `${user}`, pass: `{pass}`})
 mongoose.connect(`${EC2DBUri}`,{user: `${user}`, pass: `${pass}`})
 	.then(()=>{
 		console.log('healthy');
 	}).catch((err)=>{
 		console.log('crap:' +err);
-	});
+});
 
 
 // CONNECTION EVENTS

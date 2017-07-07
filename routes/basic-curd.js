@@ -4,12 +4,16 @@ var {profileSchema,mongoose} = require('../config/db-connect');
 var {pic_url,pic_ext,pic_query} = require('../config/keys.js');
 
 
+<<<<<<< HEAD
 /**
  * @param  {[type]}
  * @param  {Function}
  * @param  {[type]}
  * @return {[type]}
  */
+=======
+
+>>>>>>> 4fc3042760fb90929ee3e96410b8b8770911aeca
 router.post('/register',(req,res)=>{
 	var NewRegisteration = getPopulationInstance(req.body);
 
@@ -28,10 +32,14 @@ router.post('/register',(req,res)=>{
 router.get('/search',(req,res)=>{
 	var Profile = mongoose.model('Profile',profileSchema);
 	Profile.findOne(req.query,(err,result)=>{
+<<<<<<< HEAD
 		if(err)
 			res.send("Psssssst!!!!!!! Something to worry :/");
 		else
 			res.send(result);
+=======
+		res.send(result);
+>>>>>>> 4fc3042760fb90929ee3e96410b8b8770911aeca
 	})
 });
 
@@ -49,5 +57,7 @@ var getPopulationInstance = function(body){
 		project :body.comment 
 	});
 }
+
+
 
 module.exports = router; 
