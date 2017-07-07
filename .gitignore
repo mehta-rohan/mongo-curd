@@ -1,6 +1,6 @@
 node_modules/
 data/
-config/MOCK_DATA.json
+config/MOCK*.json
 <<<<<<< HEAD
 npm-debug.log
 =======

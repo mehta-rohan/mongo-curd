@@ -44,7 +44,7 @@ mongoose.connect(`${EC2DBUri}`,{user: `${user}`, pass: `${pass}`})
 // CONNECTION EVENTS
 // When successfully connected
 mongoose.connection.on('connected', function () {  
-  console.log('Mongoose default connection open to ' + dbURI);
+  console.log('Mongoose default connection open to ' + EC2DBUri);
 }); 
 
 // If the connection throws an error

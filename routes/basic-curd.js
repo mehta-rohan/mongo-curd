@@ -4,21 +4,22 @@ var {profileSchema,mongoose} = require('../config/db-connect');
 var {pic_url,pic_ext,pic_query} = require('../config/keys.js');
 
 
-router.get('/search',(req,res)=>{
-	res.send('working is well');
-});
-
+/**
+ * @param  {[type]}
+ * @param  {Function}
+ * @param  {[type]}
+ * @return {[type]}
+ */
 router.post('/register',(req,res)=>{
 	var NewRegisteration = getPopulationInstance(req.body);
 
-	NewRegisteration.save().then((doc)=>{/*
+	NewRegisteration.save().then((doc)=>{
+	
 		res.status(200).render('sucess', { 
 			title: 'Wellcome',
 			name : body.first_name+" "+body.last_name,
 			email : body.email 
-		});
-	*/
-	res.send(doc);
+		});	
 	},(err)=>{
 		res.status(400).res.render('error',{message: 'snap!!!',err});
 	});
@@ -26,8 +27,11 @@ router.post('/register',(req,res)=>{
 
 router.get('/search',(req,res)=>{
 	var Profile = mongoose.model('Profile',profileSchema);
-	Profile.findOne({first_name : req.body.first_name},(err,result)=>{
-		res.send(result);
+	Profile.findOne(req.query,(err,result)=>{
+		if(err)
+			res.send("Psssssst!!!!!!! Something to worry :/");
+		else
+			res.send(result);
 	})
 });
 
