@@ -21,7 +21,6 @@ router.post('/register', (req, res) => {
 	var NewRegisteration = getPopulationInstance(req.body);
 
 	NewRegisteration.save().then((doc) => {
-
 		res.status(200).render('sucess', {
 			title: 'Wellcome',
 			name: body.first_name + " " + body.last_name,
@@ -35,19 +34,33 @@ router.post('/register', (req, res) => {
 	});
 });
 
+
+/**
+ * [description]
+ * @param  {[type]} '/search' [description]
+ * @param  {[type]} (req,     res)          [description]
+ * @return {[type]}           [description]
+ */
 router.get('/search', (req, res) => {
 	var Profile = mongoose.model('Profile', profileSchema);
-	Profile.findOne(req.query, (err, result) => {
+
+	Profile.findOne({}, (err, result) => {
 		if (err)
 			res.send("Psssssst!!!!!!! Something to worry :/");
-		else
-			res.send(result);
-		res.send(result);
+		else{
+			var profileResult = getPopulationInstance(result);
+			res.send(profileResult.fullAddress);
 
-	})
+		}
+	});
 });
 
 
+/**
+ * [getPopulationInstance description]
+ * @param  {[type]} body [description]
+ * @return {[type]}      [description]
+ */
 var getPopulationInstance = function(body) {
 	var Profile = mongoose.model('Profile', profileSchema);
 	return new Profile({
@@ -55,7 +68,7 @@ var getPopulationInstance = function(body) {
 		last_name: body.last_name,
 		email: body.email,
 		phone_number: body.phone,
-		address_line: body.address,
+		address_line: body.address_line,
 		city: body.city,
 		state: body.state,
 		zip: body.zip,
@@ -64,7 +77,5 @@ var getPopulationInstance = function(body) {
 		project: body.comment
 	});
 }
-
-
 
 module.exports = router;

@@ -18,12 +18,13 @@ var qMark = '?';
 var ec2DB = "MyApp";
 
 var EC2DBUri = `mongodb://${ec2IP}${colon}${ec2PORT}${fSlash}${ec2DB}${qMark}authSource=admin`
-var localURI = 'mongodb://localhost:27017/MyApp'
+var localURI = 'mongodb://127.0.0.1:27017/MyApp'
 var pic_url = "https://robohash.org/";
 var pic_ext = ".png";
 var pic_query = "?size=150x150&set=set1";
 
-var DB = 'local'; //remote
+var DB = 'local'; 
+//var DB = 'remote';
 
 var ec2PublicDNS = 'ec2-user@ec2-13-126-205-251.ap-south-1.compute.amazonaws.com';
 
@@ -39,5 +40,7 @@ module.exports = {
 	pic_query,
 	EC2DBUri,
 	user,
-	pass
+	pass,
+	localURI,
+	DB
 }
