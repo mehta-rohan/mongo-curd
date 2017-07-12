@@ -38,6 +38,19 @@ var profileSchema = new Schema({
 },{collection: 'virtual'});
 
 
+var querySchema = new Schema({
+	first_name : String,
+    last_name : String,
+    email : String,
+    gender : String,
+    ip_address : String,
+    Contact : []
+},{collection : 'test'}) ;
+
+
+
+
+
 
 profileSchema.virtual('fullAddress')
 	.get(function(){return `Address : ${this.address_line}, city : ${this.city}, state: ${this.state} , zip : ${this.zip}`});
@@ -88,5 +101,6 @@ process.on('SIGINT', function() {
 
 module.exports = {
 	profileSchema,
+	querySchema,
 	mongoose
 }

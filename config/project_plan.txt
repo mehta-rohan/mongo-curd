@@ -1,0 +1,21 @@
+---------------------
+-------Done
+---------------------
+AWS EC2 [mongodb] 
+Heroku [node]
+Git hub
+express
+
+---------------------
+-------Planned 
+---------------------
+mongodb [security,management]
+curd 
+authentication
+oauth
+session management 
+secure networks
+pm2
+otp
+socket.io
+hapi
